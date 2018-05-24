@@ -96,7 +96,6 @@ div.dropdown-menu {
   font-size: 13px !important; }
 
 .status-success, .status-error, .status-warning {
-  padding: 5px;
   color: white;
   border-radius: 3px;
   font-size: 10pt; }

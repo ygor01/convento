@@ -43,17 +43,14 @@ class ReservaController extends Controller
         $data_original = str_replace("/", "-", $request->input('data'));
         $data = date('Y-m-d', strtotime($data_original));
         $hora = $request->input('hora');
-        $array[] = ['Data' => $data ." $hora"];
-
-        
-        
+        $data_hora = "$data $hora";
         DB::table('reservas')->insert(
             [
             
             'nome' => $request->input('nome'),
             'email' => $request->input('email'),
             'telefone' => $request->input('telefone'),
-            'data' => $data,
+            'data_reservas' => $data_hora,
             'qtde' => $request->input('qtde'),
             'created_at' => Carbon::now()
             ]
@@ -93,9 +90,16 @@ class ReservaController extends Controller
     {
         
         $tt = $id[0] .$id[1];
+        if($id[2] == 'c'){
+            $reservas = Reserva::find($id);
+            $reservas->status = '1';
+        }
+        elseif($id[2] == 'e'){
+            $reservas = Reserva::find($id);
+            $reservas->status = '2';
+        }
         
-        $reservas = Reserva::find($id);
-        $reservas->status = '1';
+        
         $reservas->save();
         
         

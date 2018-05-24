@@ -45,7 +45,20 @@
                             <td>{{$rsv->telefone}}</td>   
                             <td>{{$rsv->qtde}}</td> 
                             <td>{{$data}}</td>
-                            <td><span class="status-success">Pendentes</span></td>
+                            
+                            @if($rsv->status == 0)
+                            <td><div class="status-warning">
+                            <span>Pendentes</span>
+                            </div></td>
+                            @elseif($rsv->status == 1)
+                            <td><div class="status-success">
+                                <span>Confirmado</span>
+                                </div></td>
+                            @elseif($rsv->status == 2)
+                            <td><div class="status-error">
+                                <span>Cancelado</span>
+                                </div></td>
+                            @endif
                             <td>
                                 
                                         {{ csrf_field() }}                                   
