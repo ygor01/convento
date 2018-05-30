@@ -9,6 +9,7 @@
 
                 
             </div>
+            
             <table id="table" class="table table-bordered table-hover text-center">
                 @if($reserva->count() == 0)
                 <tr>
@@ -17,6 +18,8 @@
                 
                     
                 @else 
+
+                
                     <thead class="thead-admin-bg">
                         <tr>
                             
@@ -30,13 +33,17 @@
                             <th scope="col">Ação</th>
                         </tr>  
                     </thead>
+                    
                     <tbody>  
-
+                    
                     @foreach($reserva as $rsv)
                         @php
                             $data = date('d/m/Y', strtotime($rsv->data));
                             $criado_em = date('d/m/Y H:i', strtotime($rsv->created_at));
                         @endphp
+                        
+                        
+                                
                         <tr class="font-table-admin">
                             
                             <td>{{$criado_em}}</td>
@@ -60,16 +67,29 @@
                                 </div></td>
                             @endif
                             <td>
-                                
-                                        {{ csrf_field() }}                                   
-                            <a href="reserva_action/id/{{$rsv->id}}c" title="Confirmar reserva - {{$rsv->id}}">
-                                        <i class="fas fa-check-circle confirm-icon"></i></a> | 
-                            <a href="reserva_action/id/{{$rsv->id}}e" title="Cancelar reserva - {{$rsv->id}}">
-                                        <i class="fas fa-times-circle cancel-icon"></i></a>
+                                <form method="POST" action="reserva_action_c">
+                                        {{ csrf_field() }}
+                                <input type="hidden" value="{{$rsv->id}}">
+                                    <button title="Confirmar reserva - {{$rsv->id}}" class="btn-action-admin" value="Enviar">
+                                        <i class="fas fa-check-circle confirm-icon"></i></button>
+                                </form>  
+                                <form method="POST" action="reserva_action_e">
+                                        {{ csrf_field() }}
+                                    <input type="hidden" name="id" value="{{$rsv->id}}">
+                                    <button title="Cancelar reserva - {{$rsv->id}}" class="btn-action-admin" value="Enviar" type="submit">
+                                    <i class="fas fa-times-circle cancel-icon"></i></button>
+                                </form>    
+                                         
+                                                            
+                            
+                             
+                                     
                                 
                             </td>
-                        </tr>   
+                        </tr> 
+                        
                     @endforeach
+                    
                     @endif
                 </tbody>    
             </table>          

@@ -25,10 +25,12 @@ Route::get('/contato', function () {
 });
 
 
-Route::post('reserva', 'ReservaController@store');
 
-Route::get('reserva_action/id/{id}', 'ReservaController@update');
+Route::post('/reserva', 'ReservaController@store');
+
+Route::post('reserva_action_c', 'ConfirmaReservaController@update')->name('reserva_action');
+Route::post('reserva_action_e', 'ExcluiReservaController@update');
 
 Auth::routes();
 
-Route::get('/home', 'ReservaController@index')->name('home');
+Route::get('/home', 'ListaReservaController@index')->name('home');
