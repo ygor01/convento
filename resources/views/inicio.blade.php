@@ -353,6 +353,7 @@
 									<input type="text" name="hora" id="timepicker" class="form-control reserva" required>
 								</div>
 							</div>
+						
 							
 							<div class="row form-group">
 								<div class="col-md-10 offset-md-1 col-sm-12 text-left">

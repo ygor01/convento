@@ -205,7 +205,9 @@ div.dropdown-menu{
     border-radius: 3px;
     font-size: 10pt;
 }
-
+.info-modal{
+	text-align: -webkit-left;
+}
 .status-success{
     background: $info-success;
 }
@@ -213,8 +215,14 @@ div.dropdown-menu{
 .status-warning{
 	background: $info-warning;
 }
-.status-error{
+.status-error, .number-reserva{
 	background: $info-error;
+}
+
+.number-reserva{
+	padding: 4px;
+	color: white;
+	border-radius: 2px;
 }
 
 .gtco-container {
@@ -1501,7 +1509,7 @@ form {
 	}
 }
 .btn-danger {
-	background: $danger;
+	background: $info-error;
 	color: $brand-white;
 	border: 2px solid $danger;
 	&:hover, &:focus, &:active {

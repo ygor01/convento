@@ -40,10 +40,15 @@ class CadastraReservaController extends Controller
      */
     public function store(Request $request)
     {
+        
         $data_original = str_replace("/", "-", $request->input('data'));
         $data = date('Y-m-d', strtotime($data_original));
         $hora = $request->input('hora');
         $data_hora = "$data $hora";
+        /*$n_mesas = $request->input('mesa'); //numero de mesas
+        $calc = ($n_mesas/5);
+        $mesa = ['Pessoas' => '10', 'Mesas' => $calc];
+        dd($mesa);*/
         DB::table('reservas')->insert(
             [
             
@@ -53,6 +58,13 @@ class CadastraReservaController extends Controller
             'data_reservas' => $data_hora,
             'qtde' => $request->input('qtde'),
             'created_at' => Carbon::now()
+            ]
+        );
+        $id = $request->input('id');
+        DB::table('mesas')->where('id', $id)->update(
+            [
+            'nome' => $request->input('mesa'),
+            'status' => '1' //0 = Mesa Livre | 1 = Mesa Ocupada
             ]
         );
     }

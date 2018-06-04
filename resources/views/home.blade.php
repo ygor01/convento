@@ -66,18 +66,46 @@
                                 <span>Cancelado</span>
                                 </div></td>
                             @endif
+                            
                             <td>
                                 <form method="POST" action="reserva_action_c">
                                         {{ csrf_field() }}
-                                <input type="hidden" value="{{$rsv->id}}">
+                                <input type="hidden" name="id" value="{{$rsv->id}}">
                                     <button title="Confirmar reserva - {{$rsv->id}}" class="btn-action-admin" value="Enviar">
                                         <i class="fas fa-check-circle confirm-icon"></i></button>
                                 </form>  
                                 <form method="POST" action="reserva_action_e">
                                         {{ csrf_field() }}
                                     <input type="hidden" name="id" value="{{$rsv->id}}">
-                                    <button title="Cancelar reserva - {{$rsv->id}}" class="btn-action-admin" value="Enviar" type="submit">
-                                    <i class="fas fa-times-circle cancel-icon"></i></button>
+                                <button type="button" title="Cancelar reserva - {{$rsv->id}}" data-toggle="modal" data-target="#Modal{{$rsv->id}}" class="btn-action-admin">
+                                    
+                                        
+                                        
+                                        <i class="fas fa-times-circle cancel-icon"></i></button>
+                                        <!-- Modal -->
+                                    <div class="modal fade" id="Modal{{$rsv->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Excluir reserva de {{$rsv->nome}}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    <div class="modal-body info-modal">
+                                                    <b>Você tem certeza que deseja excluir a reserva <span class="number-reserva">Nº {{$rsv->id}}</span>?</b><br>
+                                                    <b>Detalhes da reserva ---</b><br>
+                                                    Nome: <b>{{$rsv->nome}}</b><br>
+                                                    Quantidade: <b>{{$rsv->qtde}}</b> pessoas<br>
+                                                    Reservado para dia: <b>{{$data}}</b>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                                                    <button class="btn btn-danger" type="submit">Cancelar reserva</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
                                 </form>    
                                          
                                                             

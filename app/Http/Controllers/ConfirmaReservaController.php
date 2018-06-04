@@ -78,11 +78,10 @@ class ConfirmaReservaController extends Controller
         exit();*/
         $reserva = new Reserva;
         $reservas = Reserva::find($id);
-        $reservas->status = '1';
-        
-        
+        $reservas->status = '1';       
         
         $reservas->save();
+        return redirect()->action('ListaReservaController@index');
     }
 
     /**

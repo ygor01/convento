@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
+
 
 
 Route::get('/menu', function () {
@@ -25,8 +23,9 @@ Route::get('/contato', function () {
 });
 
 
+Route::get('/', 'InicioController@index');
 
-Route::post('/reserva', 'ReservaController@store');
+Route::post('/reserva', 'CadastraReservaController@store');
 
 Route::post('reserva_action_c', 'ConfirmaReservaController@update')->name('reserva_action');
 Route::post('reserva_action_e', 'ExcluiReservaController@update');

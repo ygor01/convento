@@ -76,10 +76,9 @@ class ExcluiReservaController extends Controller
         exit();    */
         $reservas = new Reserva;
         $reservas = Reserva::find($id);
-        $reservas->status = '2';
-        
-        
+        $reservas->status = '2';       
         $reservas->save();
+        return redirect()->action('ListaReservaController@index');
     }
 
     /**

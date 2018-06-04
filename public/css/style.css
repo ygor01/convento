@@ -100,14 +100,22 @@ div.dropdown-menu {
   border-radius: 3px;
   font-size: 10pt; }
 
+.info-modal {
+  text-align: -webkit-left; }
+
 .status-success {
   background: #75c386; }
 
 .status-warning {
   background: #f9a045; }
 
-.status-error {
+.status-error, .number-reserva {
   background: #c34343; }
+
+.number-reserva {
+  padding: 4px;
+  color: white;
+  border-radius: 2px; }
 
 .gtco-container {
   max-width: 1100px;
@@ -1182,7 +1190,7 @@ form label {
       color: #fff; }
 
 .btn-danger {
-  background: #dc3545;
+  background: #c34343;
   color: #fff;
   border: 2px solid #dc3545; }
   .btn-danger:hover, .btn-danger:focus, .btn-danger:active {
