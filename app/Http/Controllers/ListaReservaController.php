@@ -17,7 +17,7 @@ class ListaReservaController extends Controller
      */
     public function index()
     {
-        $reserva = Reserva::orderby('id', 'desc')->get();
+        $reserva = Reserva::where('status','<', '3')->orderby('id', 'desc')->get();
 
         return view('home', compact('reserva', 'id'));
     }

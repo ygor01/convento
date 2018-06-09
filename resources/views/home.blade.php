@@ -22,7 +22,7 @@
                 
                     <thead class="thead-admin-bg">
                         <tr>
-                            
+                            <th scope="col">Nº</th>
                             <th scope="col">Pedido iniciado em:</th>
                             <th scope="col">Nome Completo</th>
                             <th scope="col">E-mail</th>
@@ -38,14 +38,14 @@
                     
                     @foreach($reserva as $rsv)
                         @php
-                            $data = date('d/m/Y', strtotime($rsv->data));
+                            $data = date('d/m/Y', strtotime($rsv->data_reservas));
                             $criado_em = date('d/m/Y H:i', strtotime($rsv->created_at));
                         @endphp
                         
                         
                                 
                         <tr class="font-table-admin">
-                            
+                            <td>{{$rsv->id}}</td>
                             <td>{{$criado_em}}</td>
                             <td>{{$rsv->nome}}</td>   
                             <td>{{$rsv->email}}</td>
@@ -64,6 +64,10 @@
                             @elseif($rsv->status == 2)
                             <td><div class="status-error">
                                 <span>Cancelado</span>
+                                </div></td>
+                            @elseif($rsv->status == 3)
+                            <td><div class="status-error">
+                                <span>Expirado</span>
                                 </div></td>
                             @endif
                             

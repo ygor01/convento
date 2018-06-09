@@ -329,13 +329,6 @@
 			});
 		}
 	};
-	var teste = function(){
-		$('.js-gotop').click(function() {
-			$("html").animate({ scrollTop: 0 }, "slow");
-			//alert('Animation complete.');
-			//return false;
-		});
-	}
 
 	var maskBehavior = function (val) {
 		return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
@@ -352,6 +345,47 @@
 		duration: 600,
 		delay: 100,
 	  });
+
+	var smoothScroll = function(){
+				// URL updates and the element focus is maintained
+		// originally found via in Update 3 on http://www.learningjquery.com/2007/10/improved-animated-scrolling-script-for-same-page-links
+
+		// filter handling for a /dir/ OR /indexordefault.page
+		
+		function filterPath(string) {
+			return string
+			.replace(/^\//, '')
+			.replace(/(index|default).[a-zA-Z]{3,4}$/, '')
+			.replace(/\/$/, '');
+		}
+		
+		var locationPath = filterPath(location.pathname);
+		$('a[href*="#"]').each(function () {
+			var thisPath = filterPath(this.pathname) || locationPath;
+			var hash = this.hash;
+			if ($("#" + hash.replace(/#/, '')).length) {
+			if (locationPath == thisPath && (location.hostname == this.hostname || !this.hostname) && this.hash.replace(/#/, '')) {
+				var $target = $(hash), target = this.hash;
+				if (target) {
+				$(this).click(function (event) {
+					event.preventDefault();
+					$('html, body').animate({scrollTop: $target.offset().top}, 1000, function () {
+					location.hash = target; 
+					$target.focus();
+					if ($target.is(":focus")){ //checking if the target was focused
+						return false;
+					}else{
+						$target.attr('tabindex','-1'); //Adding tabindex for elements not focusable
+						$target.focus(); //Setting focus
+					};
+					});       
+				});
+				}
+			}
+			}
+		});
+	}
+	
 	
 	$(function(){
 		mobileMenuOutsideClick();
@@ -367,8 +401,8 @@
 		dateTimeForm();
 		parallax();
 		maskBehavior();
-		teste();
 		aos();
+		smoothScroll();
 
 	});
 

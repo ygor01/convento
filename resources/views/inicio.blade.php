@@ -80,9 +80,9 @@
 				</div>
 				<div class="col-sm-8 col-xs-8 text-right menu-1">
 					<ul>
-						<li><a href="{{ url('menu') }}">Menu</a></li>
+						<li><a href="{{ url('menu') }}">Inicio</a></li>
 						<li class="has-dropdown">
-						<a href="{{ url('menu') }}">Services</a>
+						<a href="#tt">Cardápio</a>
 							<ul class="dropdown">
 								<li><a href="#">Food Catering</a></li>
 								<li><a href="#">Wedding Celebration</a></li>
@@ -159,16 +159,19 @@
 
 	
 	
-	<div class="gtco-section">
+	<div class="gtco-section" id="tt">
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-8 offset-2 text-center gtco-heading">
-					<h2 class="cursive-font primary-color" data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" data-aos-duration="600">Pratos Populares</h2>
-					<p data-aos="fade-right" data-aos-delay="300" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" data-aos-duration="400">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+					<h2 class="cursive-font primary-color" data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-duration="600">Cardápio de entrada</h2>
+					<p data-aos="fade-right" data-aos-delay="300" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-duration="400">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
 				</div>
 			</div>
 			<div class="row">
-
+				@foreach($cardapio as $cardapios)
+				@php 
+					$valor = implode(",", explode(".", $cardapios->valor));
+				@endphp
 				<div class="col-lg-4 col-md-4 col-sm-6" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="300">
 					<a href="img/comida.jpg" class="fh5co-card-item image-popup">
 						<figure>
@@ -176,12 +179,13 @@
 							<img src="img/comida.jpg" alt="Image" class="img-responsive">
 						</figure>
 						<div class="fh5co-text">
-							<h2>Fresh Mushrooms</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="price cursive-font">R$19.15</span></p>
+						<h2>{{$cardapios->titulo}}</h2>
+						<p>{{$cardapios->descricao}}</p>
+						<p><span class="price cursive-font">R${{$valor}}</span></p>
 						</div>
 					</a>
 				</div>
+				@endforeach
 				<div class="col-lg-4 col-md-4 col-sm-6" data-aos-delay="300" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="300">
 					<a href="img/img_2.jpg" class="fh5co-card-item image-popup">
 						<figure>
@@ -261,8 +265,8 @@
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-8 offset-2 text-center gtco-heading">
-					<h2 class="cursive-font" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-duration="600">Nossos Serviços</h2>
-					<p data-aos-delay="300" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-duration="600">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+					<h2 class="cursive-font" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="600">Nossos Serviços</h2>
+					<p data-aos-delay="300" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="600">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -502,7 +506,7 @@
 
 	
 	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-migrate-3.0.0.min.js"></script>
+	<!--<script src="js/jquery-migrate-3.0.0.min.js"></script>-->
 	<!-- jQuery Mask -->	
 	<script src="js/jquery.mask.min.js"></script>
 	<!-- AOS (Animate on scroll) -->
@@ -521,6 +525,10 @@
 	<!-- Stellar Parallax -->
 	<script src="js/jquery.stellar.min.js"></script>
 
+	<script type="text/javascript">
+	
+	</script>
+
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
@@ -536,6 +544,41 @@
 	<script src="js/bootstrap-datepicker.pt-BR.min.js"></script>
 
 	<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+	<script type="text/javascript">
+	function filterPath(string) {
+			return string
+			.replace(/^\//, '')
+			.replace(/(index|default).[a-zA-Z]{3,4}$/, '')
+			.replace(/\/$/, '');
+		}
+		
+		var locationPath = filterPath(location.pathname);
+		$('a[href*="#"]').each(function () {
+			var thisPath = filterPath(this.pathname) || locationPath;
+			var hash = this.hash;
+			if ($("#" + hash.replace(/#/, '')).length) {
+			if (locationPath == thisPath && (location.hostname == this.hostname || !this.hostname) && this.hash.replace(/#/, '')) {
+				var $target = $(hash), target = this.hash;
+				if (target) {
+				$(this).click(function (event) {
+					event.preventDefault();
+					$('html, body').animate({scrollTop: $target.offset().top}, 1000, function () {
+					location.hash = target; 
+					$target.focus();
+					if ($target.is(":focus")){ //checking if the target was focused
+						return false;
+					}else{
+						$target.attr('tabindex','-1'); //Adding tabindex for elements not focusable
+						$target.focus(); //Setting focus
+					};
+					});       
+				});
+				}
+			}
+			}
+		});
+	</script>
 	<!-- Main -->
 	<script type="text/javascript" src="js/main.js"></script>
 

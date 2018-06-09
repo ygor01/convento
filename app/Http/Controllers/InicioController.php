@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Mesa;
+use App\Cardapio;
 
 class InicioController extends Controller
 {
@@ -15,8 +15,7 @@ class InicioController extends Controller
      */
     public function index()
     {
-        $mesa = Mesa::where('status', 0)->get();
-
-        return view('inicio', compact('mesa'));
+        $cardapio = Cardapio::where('categoria_id', '1')->get();
+        return view('inicio', compact('cardapio'));
     }
 }
