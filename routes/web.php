@@ -26,6 +26,8 @@ Route::get('/contato', function () {
 Route::get('/', 'InicioController@index');
 
 Route::post('/reserva', 'CadastraReservaController@store');
+Route::post('/cadastra_cardapio', 'CadastraCardapioController@store');
+Route::post('/atualiza_cardapio', 'AtualizaCardapioController@update');
 
 Route::post('reserva_action_c', 'ConfirmaReservaController@update')->name('reserva_action');
 Route::post('reserva_action_e', 'ExcluiReservaController@update');
@@ -33,3 +35,5 @@ Route::post('reserva_action_e', 'ExcluiReservaController@update');
 Auth::routes();
 
 Route::get('/home', 'ListaReservaController@index')->name('home');
+
+Route::get('/admin', 'AdminController@index')->name('home');

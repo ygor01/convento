@@ -1575,6 +1575,155 @@ form label {
     .fh5co-card-item:hover h2, .fh5co-card-item:hover span, .fh5co-card-item:focus h2, .fh5co-card-item:focus span {
       text-decoration: none !important; }
 
+.div-novo-prato-card-item {
+  display: block;
+  width: 100%;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  z-index: 9;
+  bottom: 0;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+  -ms-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+  -o-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 0px;
+  transition: 0.3s; }
+  @media screen and (prefers-reduced-motion: reduce) {
+    .div-novo-prato-card-item {
+      transition: none; } }
+  .div-novo-prato-card-item figure {
+    height: 240px;
+    overflow: hidden;
+    z-index: 12;
+    position: relative; }
+    .div-novo-prato-card-item figure .overlay {
+      opacity: 0;
+      visibility: hidden;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      background: rgba(206, 146, 72, 0.75);
+      transition: 0.7s; }
+      @media screen and (prefers-reduced-motion: reduce) {
+        .div-novo-prato-card-item figure .overlay {
+          transition: none; } }
+      .div-novo-prato-card-item figure .overlay i {
+        z-index: 12;
+        color: #fff;
+        font-size: 30px;
+        position: absolute;
+        margin-left: -15px;
+        margin-top: -45px;
+        top: 50%;
+        left: 50%;
+        transition: 0.3s; }
+        @media screen and (prefers-reduced-motion: reduce) {
+          .div-novo-prato-card-item figure .overlay i {
+            transition: none; } }
+  .div-novo-prato-card-item img {
+    z-index: 8;
+    opacity: 1;
+    transition: 0.3s; }
+    @media screen and (prefers-reduced-motion: reduce) {
+      .div-novo-prato-card-item img {
+        transition: none; } }
+  .div-novo-prato-card-item .div-novo-prato-text {
+    padding: 0px 10px 10px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 22; }
+    .div-novo-prato-card-item .div-novo-prato-text h2, .div-novo-prato-card-item .div-novo-prato-text span {
+      text-decoration: none !important; }
+    .div-novo-prato-card-item .div-novo-prato-text h2 {
+      font-size: 20px;
+      font-weight: 400;
+      margin: 0 0 10px 0;
+      color: rgba(206, 146, 72, 0.75); }
+    .div-novo-prato-card-item .div-novo-prato-text span {
+      color: #b3b3b3;
+      font-size: 16px;
+      font-weight: 400; }
+    .div-novo-prato-card-item .div-novo-prato-text p {
+      color: #000;
+      transition: 0.5s; }
+      @media screen and (prefers-reduced-motion: reduce) {
+        .div-novo-prato-card-item .div-novo-prato-text p {
+          transition: none; } }
+    .div-novo-prato-card-item .div-novo-prato-text span.price {
+      opacity: 1;
+      visibility: visible;
+      bottom: 0;
+      font-size: 30px;
+      color: rgba(206, 146, 72, 0.75);
+      position: relative;
+      transition: 0.5s; }
+      @media screen and (prefers-reduced-motion: reduce) {
+        .div-novo-prato-card-item .div-novo-prato-text span.price {
+          transition: none; } }
+  .div-novo-prato-card-item:hover, .div-novo-prato-card-item:focus {
+    bottom: 7px;
+    text-decoration: none;
+    -webkit-box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+    -ms-box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+    -o-box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19); }
+    .div-novo-prato-card-item:hover img, .div-novo-prato-card-item:focus img {
+      -webkot-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      transform: scale(1.2); }
+    .div-novo-prato-card-item:hover span.btn, .div-novo-prato-card-item:focus span.btn {
+      opacity: 1;
+      visibility: visible;
+      bottom: 0px;
+      border: 2px solid rgba(211, 158, 92, 0.75) !important;
+      background: rgba(211, 158, 92, 0.75) !important; }
+    .div-novo-prato-card-item:hover figure .overlay, .div-novo-prato-card-item:focus figure .overlay {
+      opacity: 1;
+      visibility: visible; }
+      .div-novo-prato-card-item:hover figure .overlay i, .div-novo-prato-card-item:focus figure .overlay i {
+        margin-top: -15px; }
+    .div-novo-prato-card-item:hover h2, .div-novo-prato-card-item:hover span, .div-novo-prato-card-item:focus h2, .div-novo-prato-card-item:focus span {
+      text-decoration: none !important; }
+
+.div-form-input {
+  margin-top: 10px;
+  /*background: #f1f1f1;*/
+  border: 1px solid #e6e6e6;
+  padding: 10px; }
+
+.form-input, .form-textarea, .form-select, .form-btn {
+  padding-left: 20px;
+  width: 100%;
+  margin-top: 10px; }
+
+.form-input {
+  height: 40px; }
+
+.form-textarea {
+  min-height: 40px;
+  max-height: 150px; }
+
+.img-container {
+  width: 100%;
+  text-align: center; }
+
+#imagem-thumb {
+  width: 60%; }
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto; }
+
 @media (max-width: 767.98px) {
   .macbook-wrap img {
     max-width: 100%; } }

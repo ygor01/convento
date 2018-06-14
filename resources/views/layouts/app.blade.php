@@ -14,6 +14,7 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('js/datatables.min.js') }}" defer></script>
+    <script src="{{ asset('js/cropper.min.js') }}" defer></script>
     <script defer>
         $(document).ready(function() {
         $('#table').DataTable({

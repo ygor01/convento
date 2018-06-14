@@ -168,94 +168,25 @@
 				</div>
 			</div>
 			<div class="row">
-				@foreach($cardapio as $cardapios)
+				@foreach($cardapio as $cdp)
 				@php 
-					$valor = implode(",", explode(".", $cardapios->valor));
+					$valor = implode(",", explode(".", $cdp->valor));
 				@endphp
 				<div class="col-lg-4 col-md-4 col-sm-6" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="300">
-					<a href="img/comida.jpg" class="fh5co-card-item image-popup">
+				<a href="img/comida.jpg" class="fh5co-card-item image-popup">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="img/comida.jpg" alt="Image" class="img-responsive">
+							<img src="storage/{{$cdp->imagem}}" alt="Image" class="img-responsive">
 						</figure>
 						<div class="fh5co-text">
-						<h2>{{$cardapios->titulo}}</h2>
-						<p>{{$cardapios->descricao}}</p>
+						<h2>{{$cdp->titulo}}</h2>
+						<p>{{$cdp->descricao}}</p>
 						<p><span class="price cursive-font">R${{$valor}}</span></p>
 						</div>
 					</a>
 				</div>
 				@endforeach
-				<div class="col-lg-4 col-md-4 col-sm-6" data-aos-delay="300" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="300">
-					<a href="img/img_2.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="img/img_2.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Cheese and Garlic Toast</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="price cursive-font">R$20.99</span></p>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6" data-aos-delay="600" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="300">
-					<a href="img/img_3.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="img/img_3.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Grilled Chiken Salad</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="price cursive-font">R$8.99</span></p>
-
-						</div>
-					</a>
-				</div>
-
-
-				<div class="col-lg-4 col-md-4 col-sm-6" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="300">
-					<a href="img/img_4.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="img/img_4.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Organic Egg</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="price cursive-font">R$12.99</span></p>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-4 col-md-4 col-sm-6" data-aos-delay="300" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="300">
-					<a href="img/img_5.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="img/img_5.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Tomato Soup with Chicken</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="price cursive-font">R$23.10</span></p>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-4 col-md-4 col-sm-6" data-aos-delay="600" data-aos="zoom-out" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-duration="300">
-					<a href="img/img_6.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="img/img_6.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Salad with Crispy Chicken</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="price cursive-font">R$5.59</span></p>
-						</div>
-					</a>
-				</div>
+				
 
 			</div>
 		</div>

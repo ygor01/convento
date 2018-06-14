@@ -1937,6 +1937,170 @@ form {
 	}
 }
 
+
+.div-novo-prato-card-item {
+	display: block;
+	width: 100%;
+	position: relative;
+	background: $brand-white;
+	overflow: hidden;
+	z-index: 9;
+	bottom: 0;
+	margin-bottom: 30px;
+
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+	-moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+	-ms-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+	-o-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+
+	@include border-radius(0px);
+	@include transition(.3s);
+
+	figure {
+		height: 240px;
+		overflow: hidden;
+		z-index: 12;
+		position: relative;
+		.overlay {
+			opacity: 0;
+			visibility: hidden;
+			z-index: 10;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			position: absolute;
+			background: $brand-primary;
+			@include transition(.7s);
+			i {	
+				z-index: 12;
+				color: $brand-white;
+				font-size: 30px;
+				position: absolute;
+				margin-left: -15px;
+				margin-top: -45px;
+				top: 50%;
+				left: 50%;
+				@include transition(.3s);
+			}
+		}
+	}
+	img {
+		z-index: 8;
+		opacity: 1;
+		@include transition(.3s);
+	}
+	.div-novo-prato-text {
+		padding: 0px 10px 10px 20px;
+		text-align: center;
+		position: relative;
+		z-index: 22;
+		h2, span {
+			text-decoration: none!important;
+		}
+		h2 {
+			font-size: 20px;
+			font-weight: 400;
+			margin: 0 0 10px 0;
+			color: $brand-primary;
+		}
+		span {
+			color: lighten($brand-black, 70%);
+			font-size: 16px;
+			font-weight: 400;
+		}
+		p {
+			color: $brand-black;
+			@include transition(.5s);
+		}
+		span.price {
+			// color: $brand-white!important;
+			opacity: 1;
+			visibility: visible;
+			bottom: 0;
+			font-size: 30px;
+			color: $brand-primary;
+			// background: lighten($brand-black, 10%);
+			// border: 2px solid lighten($brand-black, 10%)!important;
+			// bottom: -20px;
+			position: relative;
+			@include transition(.5s);
+		}
+	}
+	&:hover, &:focus {
+		bottom: 7px;
+		text-decoration: none;
+		-webkit-box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+		-moz-box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+		-ms-box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+		-o-box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+		box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+		img {
+			-webkot-transform: scale(1.2);
+			-moz-transform: scale(1.2);
+			-ms-transform: scale(1.2);
+			-o-transform: scale(1.2);
+			transform: scale(1.2);
+
+		}
+		span.btn {
+			opacity: 1;
+			visibility: visible;
+			bottom: 0px;
+			border: 2px solid lighten($brand-primary,5%)!important;
+			background: lighten($brand-primary, 5%)!important;
+		}
+		figure {
+			.overlay {
+				opacity: 1;
+				visibility: visible;
+				i {
+					margin-top: -15px;
+				}
+			}
+		}
+		h2, span {
+			text-decoration: none!important;
+		}
+		// p {
+		// 	color: $brand-secondary;
+		// }
+	}
+}
+
+.div-form-input{
+	margin-top: 10px;
+	/*background: #f1f1f1;*/
+	border: 1px solid #e6e6e6;
+	padding: 10px;
+}
+.form-input, .form-textarea, .form-select, .form-btn{
+	padding-left: 20px;
+	width: 100%;
+	margin-top: 10px;
+}
+.form-input{        
+	height: 40px;
+}
+.form-textarea{
+	min-height: 40px;
+	max-height: 150px;
+}
+.img-container{
+	width: 100%;
+	text-align: center;
+}
+#imagem-thumb{
+	width: 60%;
+}
+
+.img-responsive{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
 .macbook-wrap {
 	@include media-breakpoint-down(sm) {
 		img {
